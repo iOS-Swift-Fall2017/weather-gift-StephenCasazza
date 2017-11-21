@@ -49,10 +49,10 @@ class DetailVC: UIViewController {
         super.viewDidAppear(animated)
         if currentPage == 0 {
             getLocation()
-        }
+    }
     }
     func updateUserInterface() {
-        var isHidden = (locationDetail.currentTemp == "--")
+        let isHidden = (locationDetail.currentTemp == "--")
             temperatureLabel.isHidden = isHidden
             locationLabel.isHidden = isHidden
         let dateString = locationDetail.currentTime.format(timeZone: locationDetail.timeZone, dateFormatter: dateFormatter)
@@ -63,6 +63,12 @@ class DetailVC: UIViewController {
         currentImage.image = UIImage(named: locationDetail.currentIcon)
         tableView.reloadData()
         collectionView.reloadData()
+    }
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
     extension DetailVC: CLLocationManagerDelegate {
@@ -79,11 +85,28 @@ class DetailVC: UIViewController {
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.requestLocation()
         case .denied:
-            print("I'm sorry, can't show location. User has not authorized it.")
+            showAlertToPrivacySettings(title: "User has not authorized location services", message: "Select 'Settings' below to open device settings and enable location services for this app.")
         case .restricted:
-            print("Access denied. Likely parental controls are restrict location services in this app.")
+            showAlert(title: "Location services denied", message: "It may be that parental controls are restricting location use in this app")
         }
     }
+        func showAlertToPrivacySettings(title: String, message: String) {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
+                print("Something went wrong")
+                return
+            }
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { value in
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(settingsAction)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion: nil)
+        }
+        
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         handleLocationAuthorizationStatus(status: status)
     }

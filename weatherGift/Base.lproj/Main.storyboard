@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aUR-ff-X0M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aUR-ff-X0M">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -218,12 +219,93 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
+        <!--AboutVC-->
+        <scene sceneID="rs6-hl-tzk">
+            <objects>
+                <viewController id="UJB-2H-7Uv" customClass="AboutVC" customModule="weatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VQ3-cx-NGR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrn-fm-jbG">
+                                <rect key="frame" x="16" y="630" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HZf-bP-NgV"/>
+                                </constraints>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.054905489090000002" green="0.3100627661" blue="0.97261017559999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="UJB-2H-7Uv" eventType="touchUpInside" id="hdO-ke-3Lr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WeatherGift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpG-fg-XIi">
+                                <rect key="frame" x="16" y="48" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3Mh-5U-Kjg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0346" translatesAutoresizingMaskIntoConstraints="NO" id="W1P-uw-gNY">
+                                <rect key="frame" x="16" y="100" width="343" height="316"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzL-iP-pTX">
+                                <rect key="frame" x="16" y="424" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BVF-fH-khg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poweredby" translatesAutoresizingMaskIntoConstraints="NO" id="gmY-yf-aZh">
+                                <rect key="frame" x="16" y="495" width="122" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="Yqx-aI-n0Y"/>
+                                    <constraint firstAttribute="height" constant="71" id="ns7-lb-6mG"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powered-by-google" translatesAutoresizingMaskIntoConstraints="NO" id="dOe-Ip-2NU">
+                                <rect key="frame" x="146" y="492" width="213" height="71"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vzL-iP-pTX" firstAttribute="leading" secondItem="gmY-yf-aZh" secondAttribute="leading" id="1bu-Ax-tyH"/>
+                            <constraint firstItem="vpG-fg-XIi" firstAttribute="trailing" secondItem="VQ3-cx-NGR" secondAttribute="trailingMargin" id="6cg-aL-yHp"/>
+                            <constraint firstItem="4cc-H4-ne9" firstAttribute="bottom" secondItem="xrn-fm-jbG" secondAttribute="bottom" constant="7" id="M4w-XX-z6n"/>
+                            <constraint firstItem="dOe-Ip-2NU" firstAttribute="top" secondItem="vzL-iP-pTX" secondAttribute="bottom" constant="8" symbolic="YES" id="Yhs-V0-D8l"/>
+                            <constraint firstItem="vpG-fg-XIi" firstAttribute="trailing" secondItem="W1P-uw-gNY" secondAttribute="trailing" id="boj-ZT-w4h"/>
+                            <constraint firstItem="W1P-uw-gNY" firstAttribute="top" secondItem="vpG-fg-XIi" secondAttribute="bottom" constant="8" symbolic="YES" id="dff-q3-W7t"/>
+                            <constraint firstItem="vpG-fg-XIi" firstAttribute="top" secondItem="4cc-H4-ne9" secondAttribute="top" constant="28" id="f4i-18-UgD"/>
+                            <constraint firstItem="xrn-fm-jbG" firstAttribute="top" secondItem="gmY-yf-aZh" secondAttribute="bottom" constant="64" id="igE-73-0wN"/>
+                            <constraint firstItem="vzL-iP-pTX" firstAttribute="top" secondItem="W1P-uw-gNY" secondAttribute="bottom" constant="8" symbolic="YES" id="jlp-Tv-xjm"/>
+                            <constraint firstItem="4cc-H4-ne9" firstAttribute="bottom" secondItem="dOe-Ip-2NU" secondAttribute="bottom" constant="104" id="jrT-1H-ufp"/>
+                            <constraint firstItem="vpG-fg-XIi" firstAttribute="leading" secondItem="W1P-uw-gNY" secondAttribute="leading" id="kQe-0u-WPP"/>
+                            <constraint firstItem="gmY-yf-aZh" firstAttribute="leading" secondItem="xrn-fm-jbG" secondAttribute="leading" id="lYh-gH-XcN"/>
+                            <constraint firstItem="vpG-fg-XIi" firstAttribute="leading" secondItem="VQ3-cx-NGR" secondAttribute="leadingMargin" id="mFO-bm-WC7"/>
+                            <constraint firstItem="gmY-yf-aZh" firstAttribute="top" secondItem="vzL-iP-pTX" secondAttribute="bottom" constant="11" id="nBz-wG-zzz"/>
+                            <constraint firstItem="W1P-uw-gNY" firstAttribute="leading" secondItem="vzL-iP-pTX" secondAttribute="leading" id="qLw-MN-H3C"/>
+                            <constraint firstItem="W1P-uw-gNY" firstAttribute="trailing" secondItem="vzL-iP-pTX" secondAttribute="trailing" id="tg1-ob-MAC"/>
+                            <constraint firstItem="dOe-Ip-2NU" firstAttribute="leading" secondItem="gmY-yf-aZh" secondAttribute="trailing" constant="8" symbolic="YES" id="xms-AW-92e"/>
+                            <constraint firstItem="vzL-iP-pTX" firstAttribute="trailing" secondItem="dOe-Ip-2NU" secondAttribute="trailing" id="zpH-o4-WhN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4cc-H4-ne9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYA-Ok-ua1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1161" y="133"/>
+        </scene>
         <!--PageVC-->
         <scene sceneID="gwM-3P-PXY">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="aUR-ff-X0M" customClass="PageVC" customModule="weatherGift" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="eP7-qk-Nt3" kind="presentation" identifier="ToListVC" id="NBO-hP-Qc9"/>
+                        <segue destination="UJB-2H-7Uv" kind="presentation" identifier="ToAboutVC" id="56G-4t-caO"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hP-4B-wcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -297,7 +379,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_0346" width="5184" height="3456"/>
         <image name="clear-day" width="384" height="384"/>
+        <image name="powered-by-google" width="144" height="18"/>
+        <image name="poweredby" width="1904" height="759"/>
         <image name="raindrop" width="18" height="20"/>
         <image name="small-cloudy" width="384" height="384"/>
     </resources>
